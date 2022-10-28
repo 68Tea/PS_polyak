@@ -1,5 +1,9 @@
 import random
 
+brands_of_pet = {
+ "Dog": {"health": 90, "Hunger": 100, "Attitude": 90},
+ "Cat": {"health": 100, "Hunger": 70,"Attitude": 60},
+}
 
 brands_of_car = {
  "BMW": {"fuel": 100, "strength": 100, "consumption": 6},
@@ -30,6 +34,9 @@ class Human:
 
     def get_car(self):
         self.car = Auto(brands_of_car)
+
+    def get_pet(self):
+        self.pet = Pet(brands_of_pet)
 
     def get_job(self):
         if self.car.drive():
@@ -200,8 +207,23 @@ class Job:
         self.job=random.choice(list(job_list))
         self.salary=job_list[self.job]["salary"]
         self.gladness_less=job_list[self.job]["gladness_less"]
+class Pet:
+    def __init__(self, pet_list):
+         self.brand = random.choice(list (brands_of_pet))
+         self.health = brands_of_pet[self.brand]["health"]
+         self.Hunger = brands_of_pet[self.brand]["Hunger"]
+         self.Attitude = brands_of_pet[self.brand]["Attitude"]
+
+    def pet(self):
+        if self.Hunger > 0 and self.health >= self.Attitude:
+            self.health -= self.Attitude
+            self.Hunger -= 1
+            return True
+        else:
+            print("Pet die")
+            return False
 
 nick = Human(name="Nick")
-for day in range(1,365):
+for day in range(1,365 ):
     if nick.live(day) == False:
         break

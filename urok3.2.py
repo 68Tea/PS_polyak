@@ -28,6 +28,7 @@ class Human:
         self.job = job
         self.car = car
         self.home = home
+        self.pet = pet
 
     def get_home(self):
         self.home = House()

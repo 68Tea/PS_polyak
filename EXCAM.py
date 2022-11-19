@@ -1,4 +1,4 @@
-print("*" * 10, "Крестики и нолики ", "*" * 10)
+print("*" * 10, "Крестики и нулики ", "*" * 10)
 
 board = list(range(1,10))
 
@@ -15,16 +15,16 @@ def take_input(player_token):
       try:
          player_answer = int(player_answer)
       except:
-         print("Неправильный ввод. Ты уверен, что ввел правильное число?")
+         print("Неправильный ввод. Ти Впевнений, що написав  правильну цифру?")
          continue
       if player_answer >= 1 and player_answer <= 9:
          if(str(board[player_answer-1]) not in "XO"):
             board[player_answer-1] = player_token
             valid = True
          else:
-            print("Клетка уже занята!")
+            print("Клітинка вже Зайнята!")
       else:
-        print("Неправильный ввод. Введи число от 1 до 9.")
+        print("Неправильне введення. Введенни число від 1 до 9.")
 
 def check_win(board):
    win_coord = ((0,1,2), (3,4,5), (6,7,8), (0,3,6), (1,4,7), (2,5,8), (0,4,8), (2,4,6))
@@ -50,9 +50,9 @@ def main(board):
               win = True
               break
         if counter == 9:
-            print("Ничья!")
+            print("Нічия.Перемогла дружба!")
             break
     draw_board(board)
 main(board)
 
-input("Enter для выхода!")
+input("Enter для виходу!")
